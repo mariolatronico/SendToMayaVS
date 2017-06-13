@@ -5,6 +5,6 @@ By default the IP address is localhost and the port is 7720.
 In maya be sure to run this code (usually via userSetup.py in C:\Users\THEUSER\Documents\maya\scripts\userSetup.py):
 ```python
     if cmds.commandPort(':7720', q=True) !=1:
-        cmds.commandPort(n=':7720', eo = False, nr = True)
+        cmds.commandPort(n=':7720', eo = False, nr = True, stp='python')
 ```
 
