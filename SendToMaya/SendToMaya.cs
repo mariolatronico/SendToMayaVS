@@ -25,7 +25,7 @@ namespace SendToMaya
         /// Command ID.
         /// </summary>
         public const int SendToMayaCmdId = 0x0100;
-        public const int SendToMayaDebugCmdId = 0x0102;
+        //public const int SendToMayaDebugCmdId = 0x0102;
         /// <summary>
         /// Command menu group (command set GUID).
         /// </summary>
@@ -45,24 +45,18 @@ namespace SendToMaya
         /// <param name="package">Owner package, not null.</param>
         private SendToMaya(Package package)
         {
-            if (package == null)
-            {
-                throw new ArgumentNullException("package");
-            }
+            this.package = package ?? throw new ArgumentNullException("package");
 
-            this.package = package;
-
-            OleMenuCommandService commandService = this.ServiceProvider.GetService(typeof(IMenuCommandService)) as OleMenuCommandService;
-            if (commandService != null)
+            if (ServiceProvider.GetService(typeof(IMenuCommandService)) is OleMenuCommandService commandService)
             {
                 var sendToMayaMenuCommandID = new CommandID(CommandSet, SendToMayaCmdId);
                 var sendToMayaMenuItem = new MenuCommand(this.SendToMayaCallback, sendToMayaMenuCommandID);
                 commandService.AddCommand(sendToMayaMenuItem);
 
-                var sendToMayaDebugMenuCommandID = new CommandID(CommandSet, SendToMayaDebugCmdId);
-                var sendToMayaDebugMenuItem = new MenuCommand(this.SendToMayaCallback, sendToMayaDebugMenuCommandID);
-                commandService.AddCommand(sendToMayaDebugMenuItem);
-                
+                //var sendToMayaDebugMenuCommandID = new CommandID(CommandSet, SendToMayaDebugCmdId);
+                //var sendToMayaDebugMenuItem = new MenuCommand(this.SendToMayaCallback, sendToMayaDebugMenuCommandID);
+                //commandService.AddCommand(sendToMayaDebugMenuItem);
+
             }
             outputPane = CreatePane("Maya");
             
@@ -148,15 +142,15 @@ namespace SendToMaya
 
             MenuCommand menuCommand = sender as MenuCommand;
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            if (menuCommand.CommandID.ID == SendToMayaDebugCmdId)
-            {
-                //sb.AppendFormat("python(\"");
-                sb.AppendFormat("import ptvsd{0}", Environment.NewLine);
-                sb.AppendFormat("ptvsd.enable_attach(secret='secret', address = ('{0}', {1}){2}", ip.ToString(), sendToMayaPackage.OptionDebugPort, Environment.NewLine);
-                sb.AppendLine("ptvsd.wait_for_attach()");
+            //if (menuCommand.CommandID.ID == SendToMayaDebugCmdId)
+            //{
+            //    //sb.AppendFormat("python(\"");
+            //    sb.AppendFormat("import ptvsd{0}", Environment.NewLine);
+            //    sb.AppendFormat("ptvsd.enable_attach(secret='secret', address = ('{0}', {1}){2}", ip.ToString(), sendToMayaPackage.OptionDebugPort, Environment.NewLine);
+            //    sb.AppendLine("ptvsd.wait_for_attach()");
               
             
-            }
+            //}
             sb.Append(text);
             text = sb.ToString();
 

@@ -38,10 +38,10 @@
           <ButtonText>Send to Maya</ButtonText>
           <CommandName>Send to Maya</CommandName>
         </Strings>
-        <Strings>
+        <!--<Strings>
           <ButtonText>Send to Maya (debug)</ButtonText>
           <CommandName>Send to Maya</CommandName>
-        </Strings>
+        </Strings>-->
 
       </Menu>
     </Menus>
@@ -73,13 +73,13 @@
           <ButtonText>Send to Maya</ButtonText>
         </Strings>
       </Button>
-      <Button guid="guidSendToMayaPackageCmdSet" id="SendToMayaDebugId" priority="0x0102" type="Button">
+      <!--<Button guid="guidSendToMayaPackageCmdSet" id="SendToMayaDebugId" priority="0x0102" type="Button">
         <Parent guid="guidSendToMayaPackageCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages" id="bmpPic2" />
         <Strings>
           <ButtonText>Send to Maya (debug)</ButtonText>
         </Strings>
-      </Button>
+      </Button>-->
 
     </Buttons>
 
@@ -102,7 +102,7 @@
     <GuidSymbol name="guidSendToMayaPackageCmdSet" value="{dbbae0c6-3fa7-46b9-800c-1afae02535c0}">
       <IDSymbol name="MyMenuGroup" value="0x1020" />
       <IDSymbol name="SendToMayaId" value="0x0100" />
-      <IDSymbol name="SendToMayaDebugId" value="0x0102" />
+      <!--<IDSymbol name="SendToMayaDebugId" value="0x0102" />-->
       <IDSymbol name="TopLevelMenu" value="0x1021"/>
     </GuidSymbol>
 

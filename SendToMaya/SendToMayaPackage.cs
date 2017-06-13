@@ -64,7 +64,7 @@ namespace SendToMaya
         public class SendToMayaOptionsPage : DialogPage
         {
             private int port = 7720;
-            private int debugPort = 5678;
+            //private int debugPort = 5678;
             private string hostname = "localhost";
             [Category("Send to Maya")]
             [DisplayName("Port")]
@@ -75,14 +75,14 @@ namespace SendToMaya
                 set { port = value; }
             }
 
-            [Category("Send to Maya")]
-            [DisplayName("Debug Port")]
-            [Description("Remote host debug port number")]
-            public int OptionDebugPort
-            {
-                get { return debugPort; }
-                set { debugPort = value; }
-            }
+            //[Category("Send to Maya")]
+            //[DisplayName("Debug Port")]
+            //[Description("Remote host debug port number")]
+            //public int OptionDebugPort
+            //{
+            //    get { return debugPort; }
+            //    set { debugPort = value; }
+            //}
 
 
             [Category("Send to Maya")]
@@ -120,14 +120,14 @@ namespace SendToMaya
             }
         }
 
-        public int OptionDebugPort
-        {
-            get
-            {
-                SendToMayaOptionsPage page = (SendToMayaOptionsPage)GetDialogPage(typeof(SendToMayaOptionsPage));
-                return page.OptionDebugPort;
-            }
-        }
+        //public int OptionDebugPort
+        //{
+        //    get
+        //    {
+        //        SendToMayaOptionsPage page = (SendToMayaOptionsPage)GetDialogPage(typeof(SendToMayaOptionsPage));
+        //        return page.OptionDebugPort;
+        //    }
+        //}
 
 
         public string OptionHost
